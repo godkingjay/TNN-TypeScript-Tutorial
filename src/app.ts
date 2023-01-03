@@ -10,7 +10,7 @@ class Invoice {
     this.amount = a;
   }
 
-  forma() {
+  format() {
     return(
       `${this.client} owes £${this.amount} for ${this.details}`
     );
