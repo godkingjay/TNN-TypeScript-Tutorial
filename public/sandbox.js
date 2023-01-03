@@ -1,22 +1,22 @@
 "use strict";
 // let greet: Function;
 // example 1
-var greet;
-greet = function (name, greeting) {
-    console.log(name + " says " + greeting);
+let greet;
+greet = (name, greeting) => {
+    console.log(`${name} says {greeting}`);
 };
 // example 2
-var calc;
-calc = function (numOne, numTwo, action) {
+let calc;
+calc = (num1, num2, action) => {
     if (action === 'add') {
-        return numOne + numTwo;
+        return num1 + num2;
     }
     else {
-        return numOne - numTwo;
+        return num1 - num2;
     }
 };
 // example 3
-var logDetails;
-logDetails = function (ninja) {
-    console.log(ninja.name + " is " + ninja.age + " years old");
+let logDetails;
+logDetails = (person) => {
+    console.log(`${person.name} is ${person.age} years old.`);
 };

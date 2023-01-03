@@ -4,23 +4,34 @@
 let greet: (a: string, b: string) => void;
 
 greet = (name: string, greeting: string) => {
-  console.log(`${name} says ${greeting}`);
+  console.log(`${name} says {greeting}`);
 }
 
 // example 2
 let calc: (a: number, b: number, c: string) => number;
 
-calc = (numOne: number, numTwo: number, action: string) => {
-  if (action === 'add') {
-    return numOne + numTwo;
+calc = (num1: number, num2: number, action: string) => {
+  if(action === 'add'){
+    return num1 + num2;
   } else {
-    return numOne - numTwo;
+    return num1 - num2;
   }
 }
 
 // example 3
-let logDetails: (obj: {name: string, age: number}) => void;
+let logDetails: (obj: {
+  name: string,
+  age: number,
+}) => void;
 
-logDetails = (ninja: {name: string, age: number}) => {
-  console.log(`${ninja.name} is ${ninja.age} years old`);
+type person = {
+  name: string,
+  age: number,
+}
+
+logDetails = (person: {
+  name: string,
+  age: number,
+}) => {
+  console.log(`${person.name} is ${person.age} years old.`);
 }
