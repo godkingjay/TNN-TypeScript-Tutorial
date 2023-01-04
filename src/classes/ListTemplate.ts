@@ -1,23 +1,29 @@
-import { HasFormatter } from "../interfaces/HasFormatter";
+import { HasFormatter } from "../interfaces/HasFormatter.js";
 
 export class ListTemplate {
-  constructor(private container: HTMLUListElement){}
+  constructor(
+    private container: HTMLUListElement
+  ){};
 
-  render(item: HasFormatter, heading: string, pos: 'start' | 'end'){
+  render(
+    item: HasFormatter,
+    heading: string,
+    position: 'start' | 'end'
+  ){
     const li = document.createElement('li');
-  
     const h4 = document.createElement('h4');
-    h4.innerText = heading;
+
+    h4.textContent = heading;
     li.append(h4);
 
     const p = document.createElement('p');
-    p.innerText = item.format();
+    p.textContent = item.format();
     li.append(p);
 
-    if(pos === 'start'){
+    if(position.match(/start/gi)) {
       this.container.prepend(li);
     } else {
       this.container.append(li);
     }
-  }
+  };
 }

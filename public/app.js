@@ -1,20 +1,17 @@
-import { Invoice } from './classes/Invoice.js';
-import { Payment } from './classes/Payment.js';
-import { ListTemplate } from './classes/ListTemplate.js';
+import { Invoice } from "./classes/Invoice.js";
+import { ListTemplate } from "./classes/ListTemplate.js";
+import { Payment } from "./classes/Payment.js";
 const form = document.querySelector('.new-item-form');
-console.log(form.children);
-// inputs
 const type = document.querySelector('#type');
 const tofrom = document.querySelector('#tofrom');
 const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
-// list template instance
-const ul = document.querySelector('ul');
+const ul = document.querySelector('.item-list');
 const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let doc;
-    if (type.value === 'invoice') {
+    if (type.value.match(/INVOICE/gi)) {
         doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
     }
     else {
@@ -29,17 +26,16 @@ var ResourceType;
     ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
     ResourceType[ResourceType["FILM"] = 2] = "FILM";
     ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
 })(ResourceType || (ResourceType = {}));
-;
 const docOne = {
     uid: 1,
     resourceType: ResourceType.BOOK,
-    data: { title: 'name of the wind' }
+    data: { title: 'Who am I? What am I? Where am I going?' },
 };
 const docTwo = {
     uid: 10,
-    resourceType: ResourceType.DIRECTOR,
-    data: { title: 'name of the wind' }
+    resourceType: ResourceType.PERSON,
+    data: { name: 'yoshi' },
 };
-console.log(docOne);
-console.log(docTwo);
+console.log(docOne, docTwo);
